@@ -1,57 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { apiRequest } from './api/instanceApi';
+import { Header } from './components/header/Header';
+import { Layout } from './components/layout/Layout';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
+  
+//   const url = 'https://jsonplaceholder.typicode.com/posts';
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       accept: 'application/json',
+//       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZmI4OWY0ZmQyMjM2NTBmZGUyOGJiOGRlYTNiOGVmNyIsInN1YiI6IjY0YmE3NjFlMTEzODZjMDBhZTBmOWJiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nyhHVMdllzn1Dx5hw-b2nO17PrpMe1B6GKfDwYE3gR0'
+//     },
+//   };
+
+// //   const url = 'https://api.themoviedb.org/3/movie/changes';
+// // const options = {
+// //   method: 'GET',
+// //   headers: {
+// //     accept: 'application/json',
+// //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZmI4OWY0ZmQyMjM2NTBmZGUyOGJiOGRlYTNiOGVmNyIsInN1YiI6IjY0YmE3NjFlMTEzODZjMDBhZTBmOWJiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nyhHVMdllzn1Dx5hw-b2nO17PrpMe1B6GKfDwYE3gR0'
+// //   }
+// // };
+  
+//   fetch(url, options)
+//     .then((res) => res.json())
+//     .then((json) => console.log(json))
+//     .catch((err) => console.error('error:' + err));
+//   // async function getMovie() {
+//   //   const movie = await apiRequest.get('/discover/movie')
+//   //   return movie
+//   // }
+//   // console.log(getMovie());
+
+
+
+const url = 'https://api.themoviedb.org/3/movie/changes';
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZmI4OWY0ZmQyMjM2NTBmZGUyOGJiOGRlYTNiOGVmNyIsInN1YiI6IjY0YmE3NjFlMTEzODZjMDBhZTBmOWJiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nyhHVMdllzn1Dx5hw-b2nO17PrpMe1B6GKfDwYE3gR0'
+  }
+};
+
+fetch(url, options)
+  .then(res => res.json())
+  .then(json => console.log(json))
+  .catch(err => console.error('error:' + err));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Layout>
+        <Routes>
+          <Route path='a' element={<div>a</div>} />
+          <Route path='b' element={<div>b</div>} />
+        </Routes>
+      </Layout>
+    </>
   );
 }
 
