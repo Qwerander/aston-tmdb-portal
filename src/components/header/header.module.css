@@ -1,6 +1,15 @@
 .header {
+  position: sticky;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #121212;
+  padding: 24px;
+}
+.nav {
+  display: flex;
+  gap: 24px;
 }
 .link {
-  color: red;
+  color: green;
 }

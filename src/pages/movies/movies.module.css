@@ -1,0 +1,15 @@
+.poster {
+    min-width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 30px 10px;
+    margin-bottom: 10px;
+}
+
+.mini {
+    border-radius: 10px;
+    border: 1px solid coral;
+    box-shadow: 0px 0px 25px 1px rgba(255, 255, 255, 0.2);
+}
+

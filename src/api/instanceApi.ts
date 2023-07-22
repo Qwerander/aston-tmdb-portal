@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.themoviedb.org/3/';
+export const API_URL = 'https://api.themoviedb.org/3';
 
 export const apiRequest = axios.create({
   headers: {
