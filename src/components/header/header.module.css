@@ -1,10 +1,12 @@
 .header {
   position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #121212;
   padding: 24px;
+  z-index: 100;
 }
 .nav {
   display: flex;

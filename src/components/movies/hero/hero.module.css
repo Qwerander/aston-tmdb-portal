@@ -1,0 +1,24 @@
+.hero {
+  min-height: 350px;
+  width: 100%;
+  background-image: url('https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/46FRuCeAn6TrS4F1P4F9zhyCpyo.jpg');
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  justify-content: space-between;
+}
+
+.input {
+    border-radius: 24px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    outline: none;
+}
+
+.title {
+    font-size: 48px;
+    color: azure;
+    text-align: center;
+}

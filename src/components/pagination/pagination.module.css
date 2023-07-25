@@ -1,0 +1,82 @@
+.pagination {
+    display: flex;
+    gap: 30px;
+    align-self: center;
+}
+
+.pages {
+    display: flex;
+    gap: 10px;
+    align-self: center;
+}
+
+.pages svg {
+  cursor: pointer;
+}
+
+.elipses {
+  color: coral;
+  cursor: pointer;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 3px;
+}
+
+.page {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background-color: coral;
+  border-radius: 100%;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: azure;
+  font-size: 12px;
+}
+
+.active {
+  background-color: aqua;
+}
+
+.active .number {
+  color: #121212;
+}
+
+.unVisible {
+  display: none;
+  position: relative;
+}
+
+.visible {
+  display: block;
+}
+
+.totalBlock {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.total {
+    font-size: 24px;
+    color: azure;
+}
+
+.input {
+    border: none;
+    outline: none;
+    padding: 4px 12px;
+    background-color: azure;
+    border-radius: 24px;
+    max-width: 50px;
+}

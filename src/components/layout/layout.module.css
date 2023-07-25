@@ -2,4 +2,6 @@
 .layout {
     max-width: 1400px;
     margin: 0 auto;
+    background-color: #121212;
+    padding: 32px 0;
 }
