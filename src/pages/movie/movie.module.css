@@ -1,0 +1,38 @@
+
+.movie {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.descr {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.descr > div {
+    width: calc(50% - 12px);
+}
+
+.back {
+    color: blueviolet;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.back:hover {
+    color: blue;
+}
+
+@media (max-width: 768px) {
+    .descr {
+        flex-direction: column;
+    }
+
+    .descr > div {
+        width: 100%;
+    }
+}

@@ -1,18 +1,18 @@
 import styles from './pagination.module.css'
 interface ISetClassName {
-    activePage: number
+  currentPage: number
     totalPage: number
     page: number
 }
 
 
-export function setClassName({ activePage, totalPage, page }: ISetClassName): string {
+export function setClassName({ currentPage, totalPage, page }: ISetClassName): string {
     const classes = [styles.page];
-    if (activePage === page) {
+    if (currentPage === page) {
       classes.push(styles.active);
     }
   
-    if (Math.abs(page - activePage) <= 3) {
+    if (Math.abs(page - currentPage) <= 3) {
       classes.push(styles.visible);
     }
   

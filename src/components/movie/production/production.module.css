@@ -1,0 +1,48 @@
+.production {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    color: brown;
+}
+
+.company {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.countries {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wrapper {
+    width: 100px;
+    height: 100px;
+    background-color: burlywood;
+    border-radius: 100%;
+    box-shadow: 2px 2px 4px rgba(255, 0, 0, 0.9);
+    padding: 5px;
+}
+
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.country {
+    font-size: 18px;
+    color: aquamarine;
+}

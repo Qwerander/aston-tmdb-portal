@@ -2,32 +2,41 @@ import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/hooks';
 import { Movie } from '../movie/Movie';
 import styles from './moviesList.module.css';
+import { Loader } from '../../loader/loader';
 
 interface IMovieList {
   page: number;
-  setTotal: (value: number) => void
+  valueSearch: string;
+  setTotal: (value: number) => void;
 }
 
-export const MoviesList = ({ page, setTotal }: IMovieList) => {
-  const movies = useAppSelector((state) => state.movies.movies.movies[page]);
-  const moviesSearch = useAppSelector(
-    (state) => state.movies.moviesSearch.movies
-  );
-  const totalMoviesSearch = useAppSelector(
-    (state) => state.movies.moviesSearch.total_pages
-  );
-  const totalMovies = useAppSelector(
-    (state) => state.movies.movies.total_pages
-  );
-  const moviesRender = (moviesSearch ? moviesSearch[page] : null) || movies;
+export const MoviesList = ({ page, setTotal, valueSearch }: IMovieList) => {
+  const {
+    movies: { movies, total_pages: totalMovies },
+    moviesSearch: { movies: moviesSearch, total_pages: totalMoviesSearch },
+    status,
+  } = useAppSelector((state) => state.movies);
+  // const movies = useAppSelector((state) => state.movies.movies.movies[page]);
+  // const moviesSearch = useAppSelector(
+  //   (state) => state.movies.moviesSearch.movies
+  // );
+  // const totalMoviesSearch = useAppSelector(
+  //   (state) => state.movies.moviesSearch.total_pages
+  // );
+  // const totalMovies = useAppSelector(
+  //   (state) => state.movies.movies.total_pages
+  // );
+  const moviesRender = valueSearch ? moviesSearch[page] : movies[page];
 
-useEffect(() => {
+  useEffect(() => {
     if (totalMoviesSearch) {
-        setTotal(totalMoviesSearch)
+      setTotal(totalMoviesSearch);
     } else {
-        setTotal(totalMovies)
+      setTotal(totalMovies);
     }
-}, [totalMoviesSearch, totalMovies, setTotal])
+  }, [totalMoviesSearch, totalMovies, setTotal]);
+
+  if (status === 'loading') return <Loader />
 
   return (
     <ul className={styles.list}>
