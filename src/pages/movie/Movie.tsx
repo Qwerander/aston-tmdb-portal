@@ -2,7 +2,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import styles from './movie.module.css';
 import { useEffect } from 'react';
-import { clearMovie, getMovieByIdAsync } from '../../store/reducers/movieSlice';
+import { clearMovie } from '../../store/reducers/movie/movieSlice';
+import { getMovieByIdAsync } from '../../store/reducers/movie/fetchMethods';
 import { Loader } from '../../components/loader/loader';
 import { Hero } from '../../components/movie/hero/Hero';
 import { Production } from '../../components/movie/production/Production';
@@ -13,9 +14,7 @@ export const Movie = () => {
   const navigate = useNavigate()
   const { id } = useParams();
   const movie = useAppSelector((state) => state.movie.movie);
-
-  console.log(movie);
-
+  
   useEffect(() => {
     if (!movie && id) {
       dispatch(getMovieByIdAsync({ id: +id }));

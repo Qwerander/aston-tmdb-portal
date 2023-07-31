@@ -1,10 +1,10 @@
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './pagination.module.css';
 import { generateNumbersArray } from './generateNumbersArray';
 import { setClassName } from './setClassName';
 import { ReactComponent as ArrowLeft } from '../../img/icon_arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../../img/icon_arrow-right.svg';
-import { setCurrentPage } from '../../store/reducers/moviesSlice';
+import { setCurrentPage } from '../../store/reducers/movies/moviesSlice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 interface IPagination {

@@ -1,7 +1,7 @@
-import { IMovie } from '../../../store/reducers/moviesSlice';
 import styles from './movie.module.css';
 import no_poster from "../../../img/no-poster.jpg";
 import { useNavigate } from 'react-router-dom';
+import { IMovie } from '../../../store/reducers/movies/typesMovies';
 
 export const Movie = ({ id, title, vote_average, poster_path }: IMovie) => {
   const navigate = useNavigate()

@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import styles from './movies.module.css';
+import { clearMoviesSearch } from '../../store/reducers/movies/moviesSlice';
 import {
-  clearMoviesSearch,
-  getMoviesAsync,
+  getMoviesNowPlaying,
   getMoviesSearchAsync,
-  setCurrentPage,
-} from '../../store/reducers/moviesSlice';
+} from '../../store/reducers/movies/fetchMethods';
 import { MoviesList } from '../../components/movies/moviesList/MoviesList';
 import { Hero } from '../../components/movies/hero/Hero';
 import { Pagination } from '../../components/pagination/Pagination';
@@ -27,17 +26,18 @@ export const Movies = () => {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      if (
-        valueSearch &&
-        valueSearch !== prevValueSearch.current 
-      ) {
-        dispatch(clearMoviesSearch())
-          dispatch(getMoviesSearchAsync({ search: valueSearch, page: 1 }));
-  
+      if (valueSearch && valueSearch !== prevValueSearch.current) {
+        dispatch(clearMoviesSearch());
+        dispatch(getMoviesSearchAsync({ search: valueSearch, page: 1 }));
+
         prevValueSearch.current = valueSearch;
-      } else if (valueSearch && page !== prevPage.current && !pagesSearch.includes(`${page}`)) {
+      } else if (
+        valueSearch &&
+        page !== prevPage.current &&
+        !pagesSearch.includes(`${page}`)
+      ) {
         dispatch(getMoviesSearchAsync({ search: valueSearch, page }));
-        prevPage.current = page
+        prevPage.current = page;
       }
     }, 2000);
     return () => {
@@ -46,18 +46,16 @@ export const Movies = () => {
   }, [dispatch, page, valueSearch, prevValueSearch, pagesSearch]);
 
   useEffect(() => {
-    if (!valueSearch && valueSearch !== prevValueSearch.current ) {
+    if (!valueSearch && valueSearch !== prevValueSearch.current) {
       dispatch(clearMoviesSearch());
       console.log('a');
-      
-    } 
+    }
   }, [valueSearch, dispatch]);
 
   useEffect(() => {
     if (!valueSearch && !pagesPlaing.includes(`${page}`)) {
-      dispatch(getMoviesAsync({ page }));
+      dispatch(getMoviesNowPlaying({ page }));
       console.log('asd');
-      
     }
   }, [dispatch, page, pagesPlaing, valueSearch]);
 

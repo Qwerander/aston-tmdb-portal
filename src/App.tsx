@@ -1,16 +1,12 @@
-import { apiRequest } from './api/instanceApi';
 import { Header } from './components/header/Header';
 import { Layout } from './components/layout/Layout';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { Movies } from './pages/movies/Movies';
 import { Actors } from './pages/actors/Actors';
 import { useEffect } from 'react';
-import { useAppDispatch } from './store/hooks';
-import { getConfig } from './store/reducers/configSlice';
 import { Movie } from './pages/movie/Movie';
 
 function App() {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   
