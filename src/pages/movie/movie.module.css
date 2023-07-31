@@ -28,6 +28,10 @@
 }
 
 @media (max-width: 768px) {
+    .back {
+        margin-left: 32px;
+    }
+
     .descr {
         flex-direction: column;
     }

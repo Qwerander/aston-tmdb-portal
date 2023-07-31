@@ -1,15 +1,28 @@
 .filters {
-    display: flex;
+    display: grid;
+    padding: 12px;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     gap: 12px;
+    background-color: #151515;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
   
   .label {
     display: flex;
+    justify-content: center;
     gap: 6px;
     color: coral;
     cursor: pointer;
     position: relative;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.9);
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .label:hover {
+    transform: scale(1.05);
+    color: chocolate;
   }
   
   input[type='radio'] {
@@ -22,3 +35,8 @@
     color: aquamarine;  
   }
   
+@media (max-width: 420px) {
+    .filters {
+      grid-template-columns: repeat(2, 1fr);
+    }
+}

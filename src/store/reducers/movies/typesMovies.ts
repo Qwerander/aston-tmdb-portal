@@ -48,6 +48,7 @@ export interface IMovie {
       movies: Record<number, IMovie[]>;
       total_pages: number
     }
+    selectedFilter: FilterType
     currentPage: number
     status: 'idle' | 'loading' | 'failed';
   }

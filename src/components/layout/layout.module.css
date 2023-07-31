@@ -3,5 +3,12 @@
     max-width: 1400px;
     margin: 0 auto;
     background-color: #121212;
-    padding: 32px;
+    padding: 0 32px 32px;
+    
+}
+
+@media (max-width: 767px) {
+    .layout {
+        padding: 0 0 32px;
+    }
 }

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IMoviesState } from './typesMovies';
+import { FilterType, IMoviesState } from './typesMovies';
 import { getMoviesNowPlaying, getMoviesPopular, getMoviesSearchAsync, getMoviesTopRated, getMoviesUpcoming } from './fetchMethods';
 
 const initialState: IMoviesState = {
@@ -23,6 +23,7 @@ const initialState: IMoviesState = {
     movies: {},
     total_pages: 0,
   },
+  selectedFilter: FilterType.NowPlaying,
   currentPage: 1,
   status: 'idle',
 };
@@ -39,12 +40,13 @@ export const moviesSlice = createSlice({
     },
     setCurrentPage: (state, action: PayloadAction<{ page: number }>) => {
       state.currentPage = action.payload.page
+    },
+    setFilter: (state, action: PayloadAction<FilterType>) => {
+      state.selectedFilter = action.payload;
     }
   },
-
   extraReducers: (builder) => {
     builder.addCase(getMoviesNowPlaying.fulfilled, (state, action) => {
-      console.log(action.payload);
       const { movies, page, total_pages } = action.payload
       state.nowPlaying.movies[page] = movies
       state.nowPlaying.total_pages = total_pages
@@ -54,7 +56,6 @@ export const moviesSlice = createSlice({
       state.status = 'loading'
     })
     builder.addCase(getMoviesPopular.fulfilled, (state, action) => {
-      console.log(action.payload);
       const { movies, page, total_pages } = action.payload
       state.popular.movies[page] = movies
       state.popular.total_pages = total_pages
@@ -64,7 +65,6 @@ export const moviesSlice = createSlice({
       state.status = 'loading'
     })
     builder.addCase(getMoviesTopRated.fulfilled, (state, action) => {
-      console.log(action.payload);
       const { movies, page, total_pages } = action.payload
       state.topRated.movies[page] = movies
       state.topRated.total_pages = total_pages
@@ -74,7 +74,6 @@ export const moviesSlice = createSlice({
       state.status = 'loading'
     })
     builder.addCase(getMoviesUpcoming.fulfilled, (state, action) => {
-      console.log(action.payload);
       const { movies, page, total_pages } = action.payload
       state.upcoming.movies[page] = movies
       state.upcoming.total_pages = total_pages
@@ -96,6 +95,6 @@ export const moviesSlice = createSlice({
 });
 
 
-export const { clearMoviesSearch, setCurrentPage } = moviesSlice.actions;
+export const { clearMoviesSearch, setCurrentPage, setFilter } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Fragment } from 'react';
 import { FilterType } from '../../../store/reducers/movies/typesMovies';
 import styles from './filters.module.css';
 import { useAppDispatch } from '../../../store/hooks';
@@ -28,7 +28,7 @@ export const Filters = ({ selectedFilter, onFilterChange }: IFilters) => {
   return (
     <div className={styles.filters}>
       {Object.values(FilterType).map((filter) => (
-        <>
+        <Fragment key={filter}>
           <input
             id={filter}
             type='radio'
@@ -36,10 +36,10 @@ export const Filters = ({ selectedFilter, onFilterChange }: IFilters) => {
             checked={filter === selectedFilter}
             onChange={handleFilterChange}
           />
-          <label htmlFor={filter} className={styles.label} key={filter}>
+          <label htmlFor={filter} className={styles.label}>
             {filterLabels[filter]}
           </label>
-        </>
+        </Fragment>
       ))}
     </div>
   );
