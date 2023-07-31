@@ -28,15 +28,18 @@ export const Filters = ({ selectedFilter, onFilterChange }: IFilters) => {
   return (
     <div className={styles.filters}>
       {Object.values(FilterType).map((filter) => (
-        <label className={styles.label} key={filter}>
+        <>
           <input
+            id={filter}
             type='radio'
             value={filter}
             checked={filter === selectedFilter}
             onChange={handleFilterChange}
           />
-          {filterLabels[filter]}
-        </label>
+          <label htmlFor={filter} className={styles.label} key={filter}>
+            {filterLabels[filter]}
+          </label>
+        </>
       ))}
     </div>
   );

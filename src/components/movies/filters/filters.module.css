@@ -2,11 +2,23 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-}
-
-.label {
+  }
+  
+  .label {
     display: flex;
     gap: 6px;
     color: coral;
     cursor: pointer;
-}
+    position: relative;
+  }
+  
+  input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  input:checked + .label {
+    color: aquamarine;  
+  }
+  
