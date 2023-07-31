@@ -3,7 +3,19 @@ import { IMoviesState } from './typesMovies';
 import { getMoviesNowPlaying, getMoviesSearchAsync } from './fetchMethods';
 
 const initialState: IMoviesState = {
-  movies: {
+  nowPlaying: {
+    movies: {},
+    total_pages: 0
+  },
+  topRated: {
+    movies: {},
+    total_pages: 0
+  },
+  popular: {
+    movies: {},
+    total_pages: 0
+  },
+  upcoming: {
     movies: {},
     total_pages: 0
   },
@@ -34,8 +46,8 @@ export const moviesSlice = createSlice({
     builder.addCase(getMoviesNowPlaying.fulfilled, (state, action) => {
       console.log(action.payload);
       const { movies, page, total_pages } = action.payload
-      state.movies.movies[page] = movies
-      state.movies.total_pages = total_pages
+      state.nowPlaying.movies[page] = movies
+      state.nowPlaying.total_pages = total_pages
       state.status = 'idle'
     })
     builder.addCase(getMoviesNowPlaying.pending, (state) => {

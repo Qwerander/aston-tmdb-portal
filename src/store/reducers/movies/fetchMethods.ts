@@ -12,6 +12,36 @@ export const getMoviesNowPlaying = createAsyncThunk(
       return { page: data.page, movies, total_pages }
     }
   );
+export const getMoviesPopular = createAsyncThunk(
+    'movies/fetchMovies',
+    async (data: QueryType) => {
+      const { page } = data
+      const res = await apiRequest.get(`/movie/${FilterType.Popular}?&page=${page}`);
+      const movies = res.data.results
+      const total_pages = res.data.total_pages
+      return { page: data.page, movies, total_pages }
+    }
+  );
+export const getMoviesTopRated = createAsyncThunk(
+    'movies/fetchMovies',
+    async (data: QueryType) => {
+      const { page } = data
+      const res = await apiRequest.get(`/movie/${FilterType.TopRated}?&page=${page}`);
+      const movies = res.data.results
+      const total_pages = res.data.total_pages
+      return { page: data.page, movies, total_pages }
+    }
+  );
+export const getMoviesUpcoming = createAsyncThunk(
+    'movies/fetchMovies',
+    async (data: QueryType) => {
+      const { page } = data
+      const res = await apiRequest.get(`/movie/${FilterType.Upcoming}?&page=${page}`);
+      const movies = res.data.results
+      const total_pages = res.data.total_pages
+      return { page: data.page, movies, total_pages }
+    }
+  );
   
   export const getMoviesSearchAsync = createAsyncThunk(
     'movies/fetchMoviesSearch',

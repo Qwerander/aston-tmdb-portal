@@ -16,7 +16,7 @@ export const Movies = () => {
   const [total, setTotal] = useState(0);
   const page = useAppSelector((state) => state.movies.currentPage);
   const pagesPlaing = Object.keys(
-    useAppSelector((state) => state.movies.movies.movies)
+    useAppSelector((state) => state.movies.nowPlaying.movies)
   );
   const pagesSearch = Object.keys(
     useAppSelector((state) => state.movies.moviesSearch.movies)

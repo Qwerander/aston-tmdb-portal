@@ -28,7 +28,19 @@ export interface IMovie {
   }
 
   export interface IMoviesState {
-    movies: {
+    nowPlaying: {
+      movies: Record<number, IMovie[]>
+      total_pages: number
+    }
+    popular: {
+      movies: Record<number, IMovie[]>
+      total_pages: number
+    }
+    topRated: {
+      movies: Record<number, IMovie[]>
+      total_pages: number
+    }
+    upcoming: {
       movies: Record<number, IMovie[]>
       total_pages: number
     }
