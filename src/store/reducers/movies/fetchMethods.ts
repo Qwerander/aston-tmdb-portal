@@ -3,7 +3,7 @@ import { FilterType, QueryType } from "./typesMovies";
 import { apiRequest } from "../../../api/instanceApi";
 
 export const getMoviesNowPlaying = createAsyncThunk(
-    'movies/fetchMovies',
+    'movies/fetchMoviesNowPlaying',
     async (data: QueryType) => {
       const { page } = data
       const res = await apiRequest.get(`/movie/${FilterType.NowPlaying}?&page=${page}`);
@@ -13,7 +13,7 @@ export const getMoviesNowPlaying = createAsyncThunk(
     }
   );
 export const getMoviesPopular = createAsyncThunk(
-    'movies/fetchMovies',
+    'movies/fetchMoviesPopular',
     async (data: QueryType) => {
       const { page } = data
       const res = await apiRequest.get(`/movie/${FilterType.Popular}?&page=${page}`);
@@ -23,7 +23,7 @@ export const getMoviesPopular = createAsyncThunk(
     }
   );
 export const getMoviesTopRated = createAsyncThunk(
-    'movies/fetchMovies',
+    'movies/fetchMoviesTopRated',
     async (data: QueryType) => {
       const { page } = data
       const res = await apiRequest.get(`/movie/${FilterType.TopRated}?&page=${page}`);
@@ -33,7 +33,7 @@ export const getMoviesTopRated = createAsyncThunk(
     }
   );
 export const getMoviesUpcoming = createAsyncThunk(
-    'movies/fetchMovies',
+    'movies/fetchMoviesUpcoming',
     async (data: QueryType) => {
       const { page } = data
       const res = await apiRequest.get(`/movie/${FilterType.Upcoming}?&page=${page}`);

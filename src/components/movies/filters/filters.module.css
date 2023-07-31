@@ -1,0 +1,12 @@
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.label {
+    display: flex;
+    gap: 6px;
+    color: coral;
+    cursor: pointer;
+}
