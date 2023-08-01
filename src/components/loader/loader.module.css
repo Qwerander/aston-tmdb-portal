@@ -10,7 +10,7 @@
   height: 60px;
   border-radius: 50%;
   display: inline-block;
-  border-top: 3px solid #6ebeff;
+  border-top: 3px solid aquamarine;
   border-right: 3px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;

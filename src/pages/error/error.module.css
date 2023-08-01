@@ -1,0 +1,36 @@
+.error {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  color: aquamarine;
+  margin-bottom: 56px;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.link {
+    color: coral;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .link:hover {
+    transform: scale(1.05);
+    color: chocolate;
+  }

@@ -5,18 +5,17 @@ import { Movies } from './pages/movies/Movies';
 import { Actors } from './pages/actors/Actors';
 import { useEffect } from 'react';
 import { Movie } from './pages/movie/Movie';
+import { Error } from './pages/error/Error';
 
 function App() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  
 
   useEffect(() => {
     if (pathname === '/') {
       navigate('/movies');
     }
   }, [pathname, navigate]);
-
 
   return (
     <>
@@ -25,10 +24,9 @@ function App() {
         <Routes>
           <Route path='movies' element={<Movies />} />
           <Route path='movie/:id' element={<Movie />} />
-
-          <Route path='actors' element={<Actors />}>
-            <Route path='actor/:id' element={<div>b</div>} />
-          </Route>
+          <Route path='actors' element={<Actors />} />
+          <Route path='actor/:id' element={<div>b</div>} />
+          <Route path='*' element={<Error />} />
         </Routes>
       </Layout>
     </>
