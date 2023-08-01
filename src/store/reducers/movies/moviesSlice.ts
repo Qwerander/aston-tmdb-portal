@@ -43,6 +43,7 @@ export const moviesSlice = createSlice({
     },
     setFilter: (state, action: PayloadAction<FilterType>) => {
       state.selectedFilter = action.payload;
+      state.currentPage = 1
     }
   },
   extraReducers: (builder) => {

@@ -2,11 +2,11 @@ import { ChangeEvent, Fragment } from 'react';
 import { FilterType } from '../../../store/reducers/movies/typesMovies';
 import styles from './filters.module.css';
 import { useAppDispatch } from '../../../store/hooks';
-import { setCurrentPage } from '../../../store/reducers/movies/moviesSlice';
+import { setFilter } from '../../../store/reducers/movies/moviesSlice';
 
 interface IFilters {
   selectedFilter: FilterType;
-  onFilterChange: (filter: FilterType) => void;
+  // onFilterChange: (filter: FilterType) => void;
 }
 
 const filterLabels: { [key in FilterType]: string } = {
@@ -16,13 +16,12 @@ const filterLabels: { [key in FilterType]: string } = {
   [FilterType.Upcoming]: 'Upcoming',
 };
 
-export const Filters = ({ selectedFilter, onFilterChange }: IFilters) => {
+export const Filters = ({ selectedFilter }: IFilters) => {
   const dispatch = useAppDispatch();
 
   const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFilter = e.target.value as FilterType;
-    onFilterChange(selectedFilter);
-    dispatch(setCurrentPage({ page: 1 }));
+    dispatch(setFilter(selectedFilter));
   };
 
   return (

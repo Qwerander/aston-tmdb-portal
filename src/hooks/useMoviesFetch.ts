@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import {
     getMoviesNowPlaying,
@@ -10,14 +10,18 @@ import {
 import { FilterType } from '../store/reducers/movies/typesMovies';
 import { clearMoviesSearch } from '../store/reducers/movies/moviesSlice';
 
-interface IUseMoviesFetch {
-    selectedFilter: FilterType;
-    valueSearch: string;
-    page: number;
-}
+// interface IUseMoviesFetch {
+//     selectedFilter: FilterType;
+//     valueSearch: string;
+//     page: number;
+// }
 
-export function useMoviesFetch({ selectedFilter, valueSearch, page }: IUseMoviesFetch) {
+export function useMoviesFetch() {
     const dispatch = useAppDispatch();
+    const [valueSearch, setValueSearch] = useState('');
+    const [total, setTotal] = useState(0);
+    const selectedFilter = useAppSelector(state => state.movies.selectedFilter)
+    const page = useAppSelector((state) => state.movies.currentPage);
     const pagesPlaying = Object.keys(useAppSelector((state) => state.movies.nowPlaying.movies));
     const pagesPopular = Object.keys(useAppSelector((state) => state.movies.popular.movies));
     const pagesTopRated = Object.keys(useAppSelector((state) => state.movies.topRated.movies));
@@ -76,4 +80,13 @@ export function useMoviesFetch({ selectedFilter, valueSearch, page }: IUseMovies
             }
         }
     }, [dispatch, page, pagesPlaying, pagesPopular, pagesTopRated, pagesUpcoming, valueSearch, selectedFilter]);
+
+    return {
+        valueSearch, 
+        setValueSearch,
+        total, 
+        setTotal,
+        selectedFilter,
+        page
+    }
 }
