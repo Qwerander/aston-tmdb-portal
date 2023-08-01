@@ -5,6 +5,7 @@ import { getMovieByIdAsync } from './fetchMethods';
 const initialState: IMovieState = {
   movie: null,
   similar: null,
+  images: null,
   status: 'idle'
 };
 
@@ -15,15 +16,16 @@ export const movieSlice = createSlice({
     clearMovie: (state) => {
       state.movie = null
       state.similar = null
+      state.images = null
     }
   },
   extraReducers: (builder) => {
     builder.addCase(getMovieByIdAsync.fulfilled, (state, action) => {
-      const { movie, similar } = action.payload
+      const { movie, similar, images } = action.payload
       state.movie = movie
-      if (similar) {
-        state.similar = similar
-      }
+      state.similar = similar
+      state.images = images
+
       state.status = 'idle'
     })
     builder.addCase(getMovieByIdAsync.pending, (state) => {

@@ -14,7 +14,7 @@ export const Movie = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { movie, similar } = useAppSelector((state) => state.movie);
+  const { movie, similar, images } = useAppSelector((state) => state.movie);
   const refId = useRef(id);
 
   useEffect(() => {
@@ -49,6 +49,13 @@ export const Movie = () => {
         <About />
         <Production />
       </div>
+      {images && 
+      <div className={styles.images}>
+        {images.slice(1, 4).map(img => (
+          <img className={styles.img} key={img} src={`https://www.themoviedb.org/t/p/w780${img}`}alt="" />
+        ))}
+      </div>
+      }
       {similar && (
         <>
           <h2 className={styles.title}>Similar movies:</h2>

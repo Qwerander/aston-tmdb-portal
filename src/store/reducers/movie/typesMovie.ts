@@ -53,6 +53,7 @@ export interface IMovie {
 export interface IMovieState {
   movie: IMovie | null
   similar: ISimilar[] | null
+  images: string[] | null
   status: 'idle' | 'loading' | 'failed';
 }
 

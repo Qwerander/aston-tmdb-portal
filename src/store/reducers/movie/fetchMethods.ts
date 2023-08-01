@@ -8,10 +8,11 @@ export const getMovieByIdAsync = createAsyncThunk(
   async (data: QueryType) => {
     const resMovie = await apiRequest.get(`/movie/${data.id}`);
     const resSimilar = await apiRequest.get(`/movie/${data.id}/similar`);
+    const resImages = await apiRequest.get(`/movie/${data.id}/images`);
     const movie = resMovie.data
     const similar = resSimilar.data.results
-
-    return { movie, similar }
+    const images: Array<string> = resImages.data.backdrops.map((img: any) => img.file_path)
+    return { movie, similar, images }
   }
 );
 
