@@ -1,0 +1,76 @@
+.movie {
+    position: relative;
+    border: 1px solid coral;
+    border-radius: 10px;
+    font-size: 0;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.movie:hover {
+    transform: scale(1.03);
+}
+
+.movie:active {
+    transform: scale(0.97);
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #121212;
+    opacity: 0;
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 12px;
+}
+
+.movie:hover .info {
+    opacity: 0.75;
+} 
+
+.vote_average {
+    font-size: 24px;
+    color: #fff;
+    align-self: flex-end;
+}
+
+
+.title {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    
+}
+
+.noCover {
+    position: relative;
+    height: 100%;
+}
+
+.noCover::before {
+    position: absolute;
+    content: 'NO COVER';
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 48px;
+    transform: rotate(-45deg);
+
+}

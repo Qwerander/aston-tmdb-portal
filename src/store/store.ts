@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import movies from './reducers/movies/moviesSlice';
 import movie from './reducers/movie/movieSlice';
+import actors from './reducers/actors/actorsSlice';
 
 export const store = configureStore({
   reducer: {
     movies,
     movie,
+    actors,
   },
 });
 

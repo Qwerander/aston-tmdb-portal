@@ -2,12 +2,12 @@ import { ChangeEvent } from 'react';
 import styles from './hero.module.css';
 
 interface IHero {
-  page: number;
+  serchPlaceholder: string;
   valueSearch: string;
   setValueSearch: (value: string) => void;
 }
 
-export const Hero = ({ page, valueSearch, setValueSearch }: IHero) => {
+export const Hero = ({ serchPlaceholder, valueSearch, setValueSearch }: IHero) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValueSearch(e.target.value);
   };
@@ -21,7 +21,7 @@ export const Hero = ({ page, valueSearch, setValueSearch }: IHero) => {
           type='text'
           value={valueSearch}
           onChange={handleChange}
-          placeholder='Найти фильм ......'
+          placeholder={serchPlaceholder}
         />
         {valueSearch && (
           <span className={styles.clear} onClick={() => setValueSearch('')}>
