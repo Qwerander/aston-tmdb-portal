@@ -1,3 +1,5 @@
+import { IMovie as ISimilar } from '../movies/typesMovies'
+
 interface IGenre {
   id: number
   name: string
@@ -50,6 +52,7 @@ export interface IMovie {
 
 export interface IMovieState {
   movie: IMovie | null
+  similar: ISimilar[] | null
   status: 'idle' | 'loading' | 'failed';
 }
 

@@ -6,9 +6,19 @@ import { apiRequest } from "../../../api/instanceApi";
 export const getMovieByIdAsync = createAsyncThunk(
   'movie/fetchMovie',
   async (data: QueryType) => {
-    const res = await apiRequest.get(`/movie/${data.id}`);
-    const movie = res.data
+    const resMovie = await apiRequest.get(`/movie/${data.id}`);
+    const resSimilar = await apiRequest.get(`/movie/${data.id}/similar`);
+    const movie = resMovie.data
+    const similar = resSimilar.data.results
 
-    return { movie }
+    return { movie, similar }
   }
 );
+
+// export const getSimilarMovies = createAsyncThunk(
+//   'movie/fetchSimilar',
+//   async (data: QueryType) => {
+
+//     return { movies }
+//   }
+// );
