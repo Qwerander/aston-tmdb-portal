@@ -6,6 +6,7 @@ import { Actors } from './pages/actors/Actors';
 import { useEffect } from 'react';
 import { Movie } from './pages/movie/Movie';
 import { Error } from './pages/error/Error';
+import { Actor } from './pages/actor/Actor';
 
 function App() {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function App() {
           <Route path='movies' element={<Movies />} />
           <Route path='movie/:id' element={<Movie />} />
           <Route path='actors' element={<Actors />} />
-          <Route path='actor/:id' element={<div>b</div>} />
+          <Route path='actor/:id' element={<Actor />} />
           <Route path='*' element={<Error />} />
         </Routes>
       </Layout>

@@ -9,6 +9,8 @@ import { Hero } from '../../components/movie/hero/Hero';
 import { Production } from '../../components/movie/production/Production';
 import { About } from '../../components/movie/about/About';
 import { Movie as SimilarMovie } from '../../components/movies/movie/Movie';
+import { Images } from '../../components/movie/images/Images';
+import { Similar } from '../../components/movie/similar/Similar';
 
 export const Movie = () => {
   const dispatch = useAppDispatch();
@@ -49,29 +51,8 @@ export const Movie = () => {
         <About />
         <Production />
       </div>
-      {images && 
-      <div className={styles.images}>
-        {images.slice(1, 4).map(img => (
-          <img className={styles.img} key={img} src={`https://www.themoviedb.org/t/p/w780${img}`}alt="" />
-        ))}
-      </div>
-      }
-      {similar && (
-        <>
-          <h2 className={styles.title}>Similar movies:</h2>
-          <ul className={styles.list}>
-            {similar?.map((movie) => (
-              <SimilarMovie
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                vote_average={movie.vote_average}
-                poster_path={movie.poster_path}
-              />
-            ))}
-          </ul>
-        </>
-      )}
+      {images && <Images />}
+      {similar && <Similar />}
     </div>
   );
 };

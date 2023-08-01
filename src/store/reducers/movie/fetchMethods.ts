@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { QueryType } from "./typesMovie";
+import { IActorsMovie, QueryType } from "./typesMovie";
 import { apiRequest } from "../../../api/instanceApi";
 
 
@@ -9,9 +9,15 @@ export const getMovieByIdAsync = createAsyncThunk(
     const resMovie = await apiRequest.get(`/movie/${data.id}`);
     const resSimilar = await apiRequest.get(`/movie/${data.id}/similar`);
     const resImages = await apiRequest.get(`/movie/${data.id}/images`);
+    const resActors = await apiRequest.get(`/movie/${data.id}/credits`);
     const movie = resMovie.data
+    const actors: IActorsMovie[] = resActors.data.cast.map((actor: IActorsMovie) => ({
+      id: actor.id,
+      name: actor.name,
+      profile_path: actor.profile_path
+    }))    
     const similar = resSimilar.data.results
     const images = resImages.data.backdrops.map(({file_path}: {file_path: string}) => file_path)
-    return { movie, similar, images }
+    return { movie, similar, images, actors }
   }
 );

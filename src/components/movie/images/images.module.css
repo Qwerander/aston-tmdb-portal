@@ -1,0 +1,63 @@
+.images {
+    display: grid;
+    padding: 0 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  .img {
+    max-width: 100%;
+    border-radius: 10px;
+    transition:
+      transform 0.5s ease-in-out,
+      box-shadow 0.5s ease-in-out;
+  }
+  
+  .img:hover {
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.9);
+    border: 1px solid black;
+  }
+  
+  .img:nth-child(1):hover {
+    transform: scale(1.75) translate(25%, 25%);
+  }
+  .img:nth-child(2):hover {
+    transform: scale(1.75) translate(0%, 25%);
+  }
+  .img:nth-child(3):hover {
+    transform: scale(1.75) translate(-25%, 25%);
+  }
+  .img:nth-child(4):hover {
+    transform: scale(1.75) translate(25%, 0%);
+  }
+  .img:nth-child(5):hover {
+    transform: scale(1.75);
+  }
+  .img:nth-child(6):hover {
+    transform: scale(1.75) translate(-25%, 0%);
+  }
+  .img:nth-child(7):hover {
+    transform: scale(1.75) translate(25%, -25%);
+  }
+  .img:nth-child(8):hover {
+    transform: scale(1.75) translate(0%, -25%);
+  }
+  
+  .img:nth-child(9):hover {
+    transform: scale(1.75) translate(-25%, -25%);
+  }
+  
+
+  @media (max-width: 560px) {
+    .images {
+      grid-template-columns: 1fr;
+    }
+    .img:hover {
+      border: none;
+      box-shadow: none;
+      transform: none !important;
+    }
+  }

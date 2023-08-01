@@ -1,0 +1,20 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.title {
+  font-size: 24px;
+  color: aquamarine;
+}
+
+@media (max-width: 767px) {
+  .list {
+    padding: 24px 12px;
+  }
+  .title {
+    margin-left: 32px;
+  }
+}

@@ -50,10 +50,17 @@ export interface IMovie {
   vote_count: number
 }
 
+export interface IActorsMovie {
+  id: number
+  name: string
+  profile_path: string
+}
+
 export interface IMovieState {
   movie: IMovie | null
   similar: ISimilar[] | null
   images: string[] | null
+  actors: IActorsMovie[] | null
   status: 'idle' | 'loading' | 'failed';
 }
 
