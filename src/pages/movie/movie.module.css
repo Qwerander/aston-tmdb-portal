@@ -40,6 +40,7 @@
 
 .images {
   display: grid;
+  padding: 0 12px;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   position: relative;
@@ -93,6 +94,9 @@
   .list {
     padding: 24px 12px;
   }
+  .title {
+    margin-left: 32px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -102,6 +106,7 @@
 
   .descr {
     flex-direction: column;
+    padding: 0 12px;
   }
 
   .descr > div {

@@ -11,15 +11,7 @@ export const getMovieByIdAsync = createAsyncThunk(
     const resImages = await apiRequest.get(`/movie/${data.id}/images`);
     const movie = resMovie.data
     const similar = resSimilar.data.results
-    const images: Array<string> = resImages.data.backdrops.map((img: any) => img.file_path)
+    const images = resImages.data.backdrops.map(({file_path}: {file_path: string}) => file_path)
     return { movie, similar, images }
   }
 );
-
-// export const getSimilarMovies = createAsyncThunk(
-//   'movie/fetchSimilar',
-//   async (data: QueryType) => {
-
-//     return { movies }
-//   }
-// );

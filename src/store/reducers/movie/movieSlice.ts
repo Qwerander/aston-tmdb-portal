@@ -31,9 +31,6 @@ export const movieSlice = createSlice({
     builder.addCase(getMovieByIdAsync.pending, (state) => {
       state.status = 'loading'
     })
-    // builder.addCase(getSimilarMovies.fulfilled, (state, action) => {
-    //   state.similar = action.payload.movies
-    // })
   },
 });
 
