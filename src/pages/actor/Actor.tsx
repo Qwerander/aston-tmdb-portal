@@ -6,7 +6,8 @@ import { Loader } from '../../components/loader/loader';
 import { Movie } from '../../components/movies/movie/Movie';
 import { getActorById } from '../../store/reducers/actor/fetchMethods';
 import { clearActor } from '../../store/reducers/actor/actorSlice';
-import no_poster from '../../img/no-poster.jpg';
+import { Profile } from '../../components/actor/profile/Profile';
+import { About } from '../../components/actor/about/About';
 
 export const Actor = () => {
   const dispatch = useAppDispatch();
@@ -21,7 +22,6 @@ export const Actor = () => {
       dispatch(clearActor());
     };
   }, [dispatch, id]);
-  console.log(actor);
 
   if (!actor) return <Loader />;
 
@@ -35,39 +35,8 @@ export const Actor = () => {
         {'<-'} Back
       </span>
       <div className={styles.descr}>
-        <div className={styles.profile}>
-          {actor.profile_path ? (
-            <img
-              className={styles.cover}
-              src={
-                actor.profile_path
-                  ? 'https://www.themoviedb.org/t/p/w780' + actor.profile_path
-                  : no_poster
-              }
-              alt={actor.name}
-            />
-          ) : (
-            <div className={styles.noCover}></div>
-          )}
-        </div>
-        <div className={styles.about}>
-          <div className={styles.wrapper}>
-            <div className={styles.subtitle}>Name: </div>
-            <p className={styles.text}>{actor.name}</p>
-          </div>
-          <div className={styles.wrapper}>
-            <div className={styles.subtitle}>Birthday: </div>
-            <p className={styles.text}>{actor.birthday}</p>
-          </div>
-          <div className={styles.wrapper}>
-            <div className={styles.subtitle}>Place of birth: </div>
-            <p className={styles.text}>{actor.place_of_birth}</p>
-          </div>
-          <div className={styles.wrapper}>
-            <div className={styles.subtitle}>Biograthy: </div>
-            <p className={styles.text}>{actor.biography}</p>
-          </div>
-        </div>
+        <Profile />
+        <About />
       </div>
       {movies && (
         <>

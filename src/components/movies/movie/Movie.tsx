@@ -27,7 +27,7 @@ export const Movie = ({ id, title, vote_average, poster_path }: IMovie) => {
       )}
       <div className={styles.info}>
         <h2 className={styles.title}>{title}</h2>
-        <span className={styles.vote_average}>Rating: {vote_average}</span>
+        <span className={styles.vote_average}>Rating: {vote_average.toFixed(1)}</span>
       </div>
     </div>
   );

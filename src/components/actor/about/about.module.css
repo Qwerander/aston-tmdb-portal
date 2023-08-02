@@ -1,0 +1,31 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  border: 2px solid aquamarine;
+  border-radius: 24px;
+}
+
+.text {
+  color: aquamarine;
+  display: inline-flex;
+  gap: 12px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.subtitle {
+  min-width: 120px;
+  color: brown;
+}
+
+@media (max-width: 560px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}

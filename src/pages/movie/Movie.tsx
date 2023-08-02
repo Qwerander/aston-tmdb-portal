@@ -8,7 +8,6 @@ import { Loader } from '../../components/loader/loader';
 import { Hero } from '../../components/movie/hero/Hero';
 import { Production } from '../../components/movie/production/Production';
 import { About } from '../../components/movie/about/About';
-import { Movie as SimilarMovie } from '../../components/movies/movie/Movie';
 import { Images } from '../../components/movie/images/Images';
 import { Similar } from '../../components/movie/similar/Similar';
 import { Actors } from '../../components/movie/actors/Actors';
@@ -36,6 +35,7 @@ export const Movie = () => {
     return () => {
       dispatch(clearMovie());
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   if (!movie) return <Loader />;

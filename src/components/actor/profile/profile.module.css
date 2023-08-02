@@ -1,0 +1,12 @@
+.profile {
+  min-width: 33%;
+  overflow: hidden;
+  font-size: 0;
+}
+
+.cover {
+  border-radius: 10px;
+  border: 1px solid coral;
+  width: 100%;
+  object-fit: cover;
+}
