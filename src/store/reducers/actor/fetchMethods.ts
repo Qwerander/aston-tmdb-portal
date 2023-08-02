@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IActor, IMovieActor, QueryType } from './typesActor';
+import { IActor, QueryType } from './typesActor';
 import { apiRequest } from '../../../api/instanceApi';
+import { IMovie, MoviesType } from '../movies/typesMovies';
 
 export const getActorById = createAsyncThunk(
   'movie/fetchActor',
@@ -17,14 +18,12 @@ export const getActorById = createAsyncThunk(
       profile_path: resActor.data.profile_path,
     };
 
-    const movies: IMovieActor[] = resMovies.data.cast.map(
-      (movie: IMovieActor) => ({
-        id: movie.id,
-        poster_path: movie.poster_path,
-        title: movie.title,
-        vote_average: movie.vote_average,
-      })
-    );
+    const movies: MoviesType = resMovies.data.cast.map((movie: IMovie) => ({
+      id: movie.id,
+      poster_path: movie.poster_path,
+      title: movie.title,
+      vote_average: movie.vote_average,
+    }));
 
     return { actor, movies };
   }

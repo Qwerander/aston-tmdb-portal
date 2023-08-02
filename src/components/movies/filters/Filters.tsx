@@ -6,7 +6,6 @@ import { setFilter } from '../../../store/reducers/movies/moviesSlice';
 
 interface IFilters {
   selectedFilter: FilterType;
-  // onFilterChange: (filter: FilterType) => void;
 }
 
 const filterLabels: { [key in FilterType]: string } = {
@@ -20,8 +19,8 @@ export const Filters = ({ selectedFilter }: IFilters) => {
   const dispatch = useAppDispatch();
 
   const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const selectedFilter = e.target.value as FilterType;
-    dispatch(setFilter(selectedFilter));
+    const filter = e.target.value as FilterType;
+    dispatch(setFilter({ filter }));
   };
 
   return (

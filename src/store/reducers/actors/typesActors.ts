@@ -5,6 +5,8 @@ export interface IActor {
   profile_path: string;
 }
 
+export type ActorsType = Array<IActor>;
+
 export type QueryType = {
   page: number;
   search?: string;

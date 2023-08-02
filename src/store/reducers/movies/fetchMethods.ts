@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { FilterType, QueryType } from './typesMovies';
+import { FilterType, MoviesType, QueryType } from './typesMovies';
 import { apiRequest } from '../../../api/instanceApi';
+import { movieTransform } from '../helpers';
 
 export const getMoviesNowPlaying = createAsyncThunk(
   'movies/fetchMoviesNowPlaying',
@@ -9,9 +10,9 @@ export const getMoviesNowPlaying = createAsyncThunk(
     const res = await apiRequest.get(
       `/movie/${FilterType.NowPlaying}?&page=${page}`
     );
-    const movies = res.data.results;
-    const total_pages = res.data.total_pages;
-    return { page: data.page, movies, total_pages };
+    const movies: MoviesType = res.data.results.map(movieTransform);
+    const total_pages: number = res.data.total_pages;
+    return { page, movies, total_pages };
   }
 );
 export const getMoviesPopular = createAsyncThunk(
@@ -21,9 +22,9 @@ export const getMoviesPopular = createAsyncThunk(
     const res = await apiRequest.get(
       `/movie/${FilterType.Popular}?&page=${page}`
     );
-    const movies = res.data.results;
-    const total_pages = res.data.total_pages;
-    return { page: data.page, movies, total_pages };
+    const movies: MoviesType = res.data.results.map(movieTransform);
+    const total_pages: number = res.data.total_pages;
+    return { page, movies, total_pages };
   }
 );
 export const getMoviesTopRated = createAsyncThunk(
@@ -33,9 +34,9 @@ export const getMoviesTopRated = createAsyncThunk(
     const res = await apiRequest.get(
       `/movie/${FilterType.TopRated}?&page=${page}`
     );
-    const movies = res.data.results;
-    const total_pages = res.data.total_pages;
-    return { page: data.page, movies, total_pages };
+    const movies: MoviesType = res.data.results.map(movieTransform);
+    const total_pages: number = res.data.total_pages;
+    return { page, movies, total_pages };
   }
 );
 export const getMoviesUpcoming = createAsyncThunk(
@@ -45,9 +46,9 @@ export const getMoviesUpcoming = createAsyncThunk(
     const res = await apiRequest.get(
       `/movie/${FilterType.Upcoming}?&page=${page}`
     );
-    const movies = res.data.results;
-    const total_pages = res.data.total_pages;
-    return { page: data.page, movies, total_pages };
+    const movies: MoviesType = res.data.results.map(movieTransform);
+    const total_pages: number = res.data.total_pages;
+    return { page, movies, total_pages };
   }
 );
 
@@ -58,8 +59,8 @@ export const getMoviesSearchAsync = createAsyncThunk(
     const res = await apiRequest.get(
       `/search/movie?query=${search}&page=${page}`
     );
-    const movies = res.data.results;
-    const total_pages = res.data.total_pages;
-    return { page: data.page, movies, total_pages };
+    const movies: MoviesType = res.data.results.map(movieTransform);
+    const total_pages: number = res.data.total_pages;
+    return { page, movies, total_pages };
   }
 );

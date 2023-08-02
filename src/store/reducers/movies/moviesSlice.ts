@@ -46,8 +46,8 @@ export const moviesSlice = createSlice({
     setCurrentPage: (state, action: PayloadAction<{ page: number }>) => {
       state.currentPage = action.payload.page;
     },
-    setFilter: (state, action: PayloadAction<FilterType>) => {
-      state.selectedFilter = action.payload;
+    setFilter: (state, action: PayloadAction<{ filter: FilterType }>) => {
+      state.selectedFilter = action.payload.filter;
       state.currentPage = 1;
     },
   },

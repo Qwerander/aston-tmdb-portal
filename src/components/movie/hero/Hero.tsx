@@ -2,12 +2,12 @@ import styles from './hero.module.css';
 import { useAppSelector } from '../../../store/hooks';
 
 export const Hero = () => {
-  const { backdrop_path, original_title, budget, homepage, vote_average } =
+  const { backdrop_path, title, budget, homepage, vote_average } =
     useAppSelector((state) => state.movie.movie)!;
 
   return (
     <>
-      <h2 className={styles.title}>{original_title}</h2>
+      <h2 className={styles.title}>{title}</h2>
       <div
         className={styles.hero}
         style={{

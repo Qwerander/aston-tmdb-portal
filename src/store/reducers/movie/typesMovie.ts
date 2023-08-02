@@ -1,4 +1,4 @@
-import { IMovie as ISimilar } from '../movies/typesMovies';
+import { MoviesType } from '../movies/typesMovies';
 
 interface IGenre {
   id: number;
@@ -11,43 +11,25 @@ interface IProduction {
   name: string;
   origin_country: string;
 }
+
 interface IProductionCountry {
   iso_3166_1: string;
   name: string;
 }
 
-interface ISpokenLanguage {
-  english_name: string;
-  iso_639_1: string;
-  name: string;
-}
-
 export interface IMovie {
-  adult: boolean;
   backdrop_path: string;
-  belongs_to_collection: string;
   budget: number;
   genres: Array<IGenre>;
   homepage: string;
   id: number;
-  imdb_id: string;
-  original_language: string;
-  original_title: string;
   overview: string;
-  popularity: number;
-  poster_path: string;
   production_companies: Array<IProduction>;
   production_countries: Array<IProductionCountry>;
   release_date: string;
-  revenue: number;
   runtime: number;
-  spoken_languages: Array<ISpokenLanguage>;
-  status: string;
-  tagline: string;
   title: string;
-  video: boolean;
   vote_average: number;
-  vote_count: number;
 }
 
 export interface IActorsMovie {
@@ -57,11 +39,14 @@ export interface IActorsMovie {
   cast_id: number;
 }
 
+export type ImagesType = Array<string> 
+export type AcctorsType = Array<IActorsMovie> 
+
 export interface IMovieState {
   movie: IMovie | null;
-  similar: ISimilar[] | null;
-  images: string[] | null;
-  actors: IActorsMovie[] | null;
+  similar: MoviesType | null;
+  images: ImagesType | null;
+  actors: AcctorsType | null;
   status: 'idle' | 'loading' | 'failed';
 }
 

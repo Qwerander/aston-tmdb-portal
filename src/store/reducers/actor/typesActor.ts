@@ -1,3 +1,5 @@
+import { IMovie } from "../movies/typesMovies";
+
 export interface IActor {
   biography: string;
   birthday: string;
@@ -7,16 +9,9 @@ export interface IActor {
   profile_path: string;
 }
 
-export interface IMovieActor {
-  id: number;
-  poster_path: string;
-  title: string;
-  vote_average: number;
-}
-
 export interface IActorState {
   actor: IActor | null;
-  movies: IMovieActor[] | null;
+  movies: Array<IMovie> | null;
   status: 'idle' | 'loading' | 'failed';
 }
 
