@@ -27,7 +27,7 @@ export const ActorsList = ({ page, setTotal, valueSearch }: IActorsList) => {
     }
   }, [totalSearch, setTotal, totalPopular]);
 
-  if (status === 'loading') return <Loader />
+  if (status === 'loading') return <Loader />;
 
   return (
     <ul className={styles.list}>

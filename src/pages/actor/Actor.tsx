@@ -41,8 +41,7 @@ export const Actor = () => {
               className={styles.cover}
               src={
                 actor.profile_path
-                  ? 'https://www.themoviedb.org/t/p/w780' +
-                    actor.profile_path
+                  ? 'https://www.themoviedb.org/t/p/w780' + actor.profile_path
                   : no_poster
               }
               alt={actor.name}

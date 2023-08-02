@@ -5,9 +5,15 @@ import { useResize } from '../../../hooks/useResize';
 
 export const About = () => {
   const [resize768] = useResize(768);
-  const { genres, overview, release_date, runtime, budget, homepage, vote_average } = useAppSelector(
-    (state) => state.movie.movie
-  )!;
+  const {
+    genres,
+    overview,
+    release_date,
+    runtime,
+    budget,
+    homepage,
+    vote_average,
+  } = useAppSelector((state) => state.movie.movie)!;
 
   return (
     <div className={styles.about}>
@@ -18,12 +24,12 @@ export const About = () => {
       <div className={styles.descr}>
         <div className={styles.title}>Ganre: </div>
         <p className={styles.text}>
-          {genres.map((genre, i , arr) => (
+          {genres.map((genre, i, arr) => (
             <Fragment key={genre.id}>
-              {genre.name.toLocaleLowerCase()}{i !== (arr.length - 1) ? ', ' : '.'}
+              {genre.name.toLocaleLowerCase()}
+              {i !== arr.length - 1 ? ', ' : '.'}
             </Fragment>
           ))}
-          
         </p>
       </div>
       <div className={styles.descr}>
@@ -46,7 +52,9 @@ export const About = () => {
           </div>
           <div className={styles.descr}>
             <div className={styles.title}>Official site: </div>
-            <p className={styles.text}><a href={homepage}>{homepage}</a></p>
+            <p className={styles.text}>
+              <a href={homepage}>{homepage}</a>
+            </p>
           </div>
         </>
       )}

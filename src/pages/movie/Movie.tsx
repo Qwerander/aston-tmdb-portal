@@ -17,7 +17,9 @@ export const Movie = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { movie, similar, images, actors } = useAppSelector((state) => state.movie);
+  const { movie, similar, images, actors } = useAppSelector(
+    (state) => state.movie
+  );
   const refId = useRef(id);
 
   useEffect(() => {

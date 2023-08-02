@@ -9,10 +9,15 @@ interface IMovieList {
   page: number;
   valueSearch: string;
   setTotal: (value: number) => void;
-  selectedFilter: FilterType 
+  selectedFilter: FilterType;
 }
 
-export const MoviesList = ({ page, setTotal, valueSearch, selectedFilter }: IMovieList) => {
+export const MoviesList = ({
+  page,
+  setTotal,
+  valueSearch,
+  selectedFilter,
+}: IMovieList) => {
   const {
     nowPlaying: { movies: nowPlaying, total_pages: totalNowPlaying },
     popular: { movies: popular, total_pages: totalPopular },
@@ -51,22 +56,30 @@ export const MoviesList = ({ page, setTotal, valueSearch, selectedFilter }: IMov
         case FilterType.NowPlaying:
           setTotal(totalNowPlaying);
           break;
-          case FilterType.Popular:
+        case FilterType.Popular:
           setTotal(totalPopular);
           break;
-          case FilterType.TopRated:
+        case FilterType.TopRated:
           setTotal(totalTopRated);
           break;
-          case FilterType.Upcoming:
+        case FilterType.Upcoming:
           setTotal(totalUpcoming);
           break;
         default:
           break;
       }
     }
-  }, [totalMoviesSearch, setTotal, selectedFilter, totalNowPlaying, totalPopular, totalTopRated, totalUpcoming]);
+  }, [
+    totalMoviesSearch,
+    setTotal,
+    selectedFilter,
+    totalNowPlaying,
+    totalPopular,
+    totalTopRated,
+    totalUpcoming,
+  ]);
 
-  if (status === 'loading') return <Loader />
+  if (status === 'loading') return <Loader />;
 
   return (
     <ul className={styles.list}>

@@ -6,8 +6,8 @@ import { useAppSelector } from '../../store/hooks';
 import { Pagination } from '../../components/pagination/Pagination';
 
 export const Actors = () => {
-  const currentPage = useAppSelector(state => state.actors.currentPage)
-  const { page,  setTotal, setValueSearch, total, valueSearch } =
+  const currentPage = useAppSelector((state) => state.actors.currentPage);
+  const { page, setTotal, setValueSearch, total, valueSearch } =
     useActorsFetch();
 
   return (

@@ -7,7 +7,7 @@ const initialState: IMovieState = {
   similar: null,
   images: null,
   actors: null,
-  status: 'idle'
+  status: 'idle',
 };
 
 export const movieSlice = createSlice({
@@ -15,27 +15,26 @@ export const movieSlice = createSlice({
   initialState,
   reducers: {
     clearMovie: (state) => {
-      state.movie = null
-      state.similar = null
-      state.images = null
-      state.actors = null
-    }
+      state.movie = null;
+      state.similar = null;
+      state.images = null;
+      state.actors = null;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getMovieByIdAsync.fulfilled, (state, action) => {
-      const { movie, similar, images, actors } = action.payload
-      state.movie = movie
-      state.similar = similar
-      state.images = images
-      state.actors = actors
-      state.status = 'idle'
-    })
+      const { movie, similar, images, actors } = action.payload;
+      state.movie = movie;
+      state.similar = similar;
+      state.images = images;
+      state.actors = actors;
+      state.status = 'idle';
+    });
     builder.addCase(getMovieByIdAsync.pending, (state) => {
-      state.status = 'loading'
-    })
+      state.status = 'loading';
+    });
   },
 });
-
 
 export const { clearMovie } = movieSlice.actions;
 

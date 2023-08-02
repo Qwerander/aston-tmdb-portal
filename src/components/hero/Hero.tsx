@@ -7,7 +7,11 @@ interface IHero {
   setValueSearch: (value: string) => void;
 }
 
-export const Hero = ({ serchPlaceholder, valueSearch, setValueSearch }: IHero) => {
+export const Hero = ({
+  serchPlaceholder,
+  valueSearch,
+  setValueSearch,
+}: IHero) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValueSearch(e.target.value);
   };

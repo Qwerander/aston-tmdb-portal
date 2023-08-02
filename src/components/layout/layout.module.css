@@ -1,14 +1,12 @@
-
 .layout {
-    max-width: 1400px;
-    margin: 0 auto;
-    background-color: #121212;
-    padding: 12px 32px 32px;
-    
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #121212;
+  padding: 12px 32px 32px;
 }
 
 @media (max-width: 767px) {
-    .layout {
-        padding: 12px 0 32px;
-    }
+  .layout {
+    padding: 12px 0 32px;
+  }
 }

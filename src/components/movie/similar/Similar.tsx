@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../../store/hooks';
 import { Movie } from '../../movies/movie/Movie';
-import styles from './similar.module.css'
+import styles from './similar.module.css';
 
 export const Similar = () => {
   const similar = useAppSelector((state) => state.movie.similar)!;

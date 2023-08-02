@@ -14,7 +14,7 @@ export const Error = () => {
           onClick={() => {
             navigate(-1);
           }}>
-          Back 
+          Back
         </span>
         <NavLink className={styles.link} to='/movies'>
           Movies
