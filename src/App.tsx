@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { Movie } from './pages/movie/Movie';
 import { Error } from './pages/error/Error';
 import { Actor } from './pages/actor/Actor';
+import { Loader } from './components/loader/loader';
 
 export const App = () => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ export const App = () => {
       <Header />
       <Layout>
         <Routes>
+          <Route path='/' element={<Loader />} />
           <Route path='movies' element={<Movies />} />
           <Route path='movie/:id' element={<Movie />} />
           <Route path='actors' element={<Actors />} />
