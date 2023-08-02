@@ -11,12 +11,13 @@ import { About } from '../../components/movie/about/About';
 import { Movie as SimilarMovie } from '../../components/movies/movie/Movie';
 import { Images } from '../../components/movie/images/Images';
 import { Similar } from '../../components/movie/similar/Similar';
+import { Actors } from '../../components/movie/actors/Actors';
 
 export const Movie = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { movie, similar, images } = useAppSelector((state) => state.movie);
+  const { movie, similar, images, actors } = useAppSelector((state) => state.movie);
   const refId = useRef(id);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ export const Movie = () => {
         <About />
         <Production />
       </div>
+      {actors && <Actors />}
       {images && <Images />}
       {similar && <Similar />}
     </div>

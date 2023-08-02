@@ -54,6 +54,7 @@ export interface IActorsMovie {
   id: number
   name: string
   profile_path: string
+  cast_id: number
 }
 
 export interface IMovieState {
