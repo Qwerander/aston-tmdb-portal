@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { Movie } from './pages/movie/Movie';
 import { Error } from './pages/error/Error';
 import { Actor } from './pages/actor/Actor';
+import { Qq } from './qq';
 
 function App() {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
       <Header />
+      <Qq />
       <Layout>
         <Routes>
           <Route path='movies' element={<Movies />} />
