@@ -1,13 +1,11 @@
 import styles from './pagination.module.css';
 interface ISetClassName {
   currentPage: number;
-  totalPage: number;
   page: number;
 }
 
 export function setClassName({
   currentPage,
-  totalPage,
   page,
 }: ISetClassName): string {
   const classes = [styles.page];

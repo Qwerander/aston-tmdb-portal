@@ -20,7 +20,7 @@ export const Pagination = ({ total, currentPage }: IPagination) => {
   const arrPages = generateNumbersArray(total);
   const [inputValue, setInputValue] = useState<string>(`${currentPage}`);
 
-  const handleChangePage = (p: number) => {
+  const handleChangePage = (p: number) => () => {
     if (pathname === '/movies') {
       dispatch(setPageMovies({ page: p }));
     }
@@ -56,11 +56,11 @@ export const Pagination = ({ total, currentPage }: IPagination) => {
   return (
     <div className={styles.pagination}>
       <div className={styles.pages}>
-        <ArrowLeft onClick={() => handleChangePage(currentPage - 1)} />
+        <ArrowLeft onClick={handleChangePage(currentPage - 1)} />
         {currentPage > 4 && (
           <span
             className={styles.elipses}
-            onClick={() => handleChangePage(currentPage - 4)}>
+            onClick={handleChangePage(currentPage - 4)}>
             ...
           </span>
         )}
@@ -71,10 +71,9 @@ export const Pagination = ({ total, currentPage }: IPagination) => {
                 className={setClassName({
                   page: p,
                   currentPage,
-                  totalPage: total,
                 })}
                 key={p}
-                onClick={() => handleChangePage(p)}>
+                onClick={handleChangePage(p)}>
                 <span className={styles.number}>{p}</span>
               </li>
             );
@@ -83,11 +82,11 @@ export const Pagination = ({ total, currentPage }: IPagination) => {
         {currentPage < total - 4 && (
           <span
             className={styles.elipses}
-            onClick={() => handleChangePage(currentPage + 4)}>
+            onClick={handleChangePage(currentPage + 4)}>
             ...
           </span>
         )}
-        <ArrowRight onClick={() => handleChangePage(currentPage + 1)} />
+        <ArrowRight onClick={handleChangePage(currentPage + 1)} />
       </div>
       <div className={styles.totalBlock}>
         <input
