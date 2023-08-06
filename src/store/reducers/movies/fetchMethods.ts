@@ -24,7 +24,10 @@ export const getMoviesPopular = createAsyncThunk(
     );
     const movies: MoviesType = res.data.results.map(movieTransform);
     const total_pages: number = res.data.total_pages;
-    return { page, movies, total_pages };
+    if (total_pages > 234) {//  234 from develop (иначе долгая загрузка?!)
+      return { page, movies: movies, total_pages: 234}; 
+    }
+    return { page, movies: movies,  total_pages};
   }
 );
 export const getMoviesTopRated = createAsyncThunk(
