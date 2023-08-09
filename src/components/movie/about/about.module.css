@@ -6,37 +6,3 @@
   border: 2px solid aquamarine;
   border-radius: 24px;
 }
-
-.text {
-  color: aquamarine;
-  display: inline-flex;
-  gap: 12px;
-}
-
-.text a {
-  color: blueviolet;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-  word-break: break-all;
-}
-
-.text a:hover {
-  color: blue;
-}
-
-.descr {
-  display: flex;
-  gap: 12px;
-  font-size: 18px;
-}
-
-.title {
-  min-width: 120px;
-  color: brown;
-}
-
-@media (max-width: 460px) {
-  .descr {
-    flex-direction: column;
-  }
-}

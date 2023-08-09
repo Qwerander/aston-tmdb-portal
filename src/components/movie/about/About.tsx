@@ -1,7 +1,7 @@
 import styles from './about.module.css';
 import { useAppSelector } from '../../../store/hooks';
-import { Fragment } from 'react';
 import { useResize } from '../../../hooks/useResize';
+import { Description } from './description/Description';
 
 export const About = () => {
   const [resize768] = useResize(768);
@@ -17,45 +17,15 @@ export const About = () => {
 
   return (
     <div className={styles.about}>
-      <div className={styles.descr}>
-        <div className={styles.title}>Overview: </div>
-        <p className={styles.text}>{overview}</p>
-      </div>
-      <div className={styles.descr}>
-        <div className={styles.title}>Ganre: </div>
-        <p className={styles.text}>
-          {genres.map((genre, i, arr) => (
-            <Fragment key={genre.id}>
-              {genre.name.toLocaleLowerCase()}
-              {i !== arr.length - 1 ? ', ' : '.'}
-            </Fragment>
-          ))}
-        </p>
-      </div>
-      <div className={styles.descr}>
-        <div className={styles.title}>Date of release:</div>
-        <p className={styles.text}>{release_date}</p>
-      </div>
-      <div className={styles.descr}>
-        <div className={styles.title}>Runtime: </div>
-        <p className={styles.text}>{runtime} minutes</p>
-      </div>
+      <Description title='Overview' value={overview} />
+      <Description title='Ganre' value={genres} />
+      <Description title='Date of release' value={release_date} />
+      <Description title='Runtime' value={`${runtime} minutes`} />
       {!resize768 && (
         <>
-          <div className={styles.descr}>
-            <div className={styles.title}>Budget: </div>
-            <p className={styles.text}>${budget}</p>
-          </div>
-          <div className={styles.descr}>
-            <div className={styles.title}>Rating: </div>
-            <p className={styles.text}>{vote_average.toFixed(1)}</p>
-          </div>
-          <div className={styles.descr}>
-            <div className={styles.title}>Official site: </div>
-            <p className={styles.text}>
-              <a href={homepage}>{homepage}</a>
-            </p>
-          </div>
+          <Description title='Budget' value={`$${budget}`} />
+          <Description title='Rating' value={`${vote_average.toFixed(1)}`} />
+          <Description title='Official site' value={homepage} link={true} />
         </>
       )}
     </div>

@@ -22,8 +22,12 @@
   cursor: pointer;
 }
 
-.actor:hover {
+.actor:hover .cover {
   transform: scale(1.03);
+}
+
+.actor:hover {
+  overflow: visible;
 }
 
 .actor:active {
@@ -33,6 +37,8 @@
 .cover {
   width: 100%;
   height: 100%;
+  border-radius: 100%;
+  transition: transform 0.3s ease-in-out;
 }
 
 .info {
@@ -43,7 +49,7 @@
   bottom: 0;
   background-color: #121212;
   opacity: 0;
-  border-radius: 10px;
+  border-radius: 100%;
   transition: opacity 0.3s ease-in-out;
   display: flex;
   justify-content: center;
@@ -59,6 +65,16 @@
   font-size: 12px;
   color: #fff;
   text-align: center;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition:
+    transform 0.7s ease-in-out,
+    opacity 0.8s ease-in-out;
+}
+
+.actor:hover .title {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 .noCover {
